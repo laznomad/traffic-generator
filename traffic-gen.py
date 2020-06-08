@@ -11,12 +11,12 @@ visits = int(input("Enter number of visits: "))
 
 options = Options()
 ua = UserAgent()
-
+chrome_path = './chromedriver'
 for i in range(visits):
     userAgent = ua.random
     print(userAgent)
     options.add_argument(f'user-agent={userAgent}')
-    driver = webdriver.Chrome(chrome_options=options, executable_path=r'/Users/nomad/Downloads/chromedriver')
+    driver = webdriver.Chrome(chrome_options=options, executable_path=chrome_path)
     driver.get(url)
     driver.set_window_size(1120, 550)
     time.sleep(random.randint(2,10)) 
